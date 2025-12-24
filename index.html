@@ -26,6 +26,7 @@
             background: rgba(10, 14, 39, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
+            padding: 0;
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
@@ -33,27 +34,19 @@
             display: flex;
             max-width: 1400px;
             margin: 0 auto;
-            overflow-x: auto; /* Memungkinkan geser di mobile */
-            scrollbar-width: none; /* Sembunyikan scrollbar Firefox */
-            -ms-overflow-style: none; /* Sembunyikan scrollbar IE/Edge */
-        }
-
-        .tabs-container::-webkit-scrollbar {
-            display: none; /* Sembunyikan scrollbar Chrome/Safari */
         }
 
         .tab-btn {
-            flex: 0 0 auto; /* Mencegah tombol menyusut */
-            padding: 18px 25px;
+            flex: 1;
+            padding: 20px;
             background: transparent;
             border: none;
             color: rgba(255,255,255,0.7);
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             border-bottom: 3px solid transparent;
-            white-space: nowrap; /* Teks tidak turun ke bawah */
         }
 
         .tab-btn:hover {
@@ -63,17 +56,17 @@
 
         .tab-btn.active {
             color: white;
-            border-bottom-color: #2ecc71;
+            border-bottom-color: #667eea;
             background: rgba(102, 126, 234, 0.2);
         }
 
         /* Progress Bar */
         .progress-container {
             position: fixed;
-            top: 59px; /* Menyesuaikan tinggi navbar baru */
+            top: 70px;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 8px;
             background: rgba(0,0,0,0.3);
             z-index: 999;
         }
@@ -83,258 +76,460 @@
             background: linear-gradient(90deg, #2ecc71, #27ae60);
             width: 0%;
             transition: width 0.5s ease;
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
         }
 
         .progress-text {
             position: fixed;
-            top: 70px;
-            right: 15px;
+            top: 82px;
+            right: 20px;
             background: rgba(46, 204, 113, 0.9);
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 20px;
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             z-index: 999;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         /* Content Sections */
         .content-section {
             display: none;
-            padding: 120px 20px 60px;
+            padding: 150px 20px 80px;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .content-section.active {
             display: block;
-            animation: fadeIn 0.4s ease-out;
+            animation: fadeIn 0.5s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             text-align: center;
-            line-height: 1.2;
         }
 
         .section-intro {
             text-align: center;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: 1.3rem;
+            margin-bottom: 50px;
             opacity: 0.9;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         /* Checklist */
         .checklist-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
+            margin-top: 30px;
         }
 
         .checklist-category {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            padding: 25px;
+            padding: 30px;
             border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
         .checklist-category h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
             color: #2ecc71;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
         }
 
         .checklist-item {
             display: flex;
             align-items: center;
-            padding: 12px;
-            margin: 8px 0;
-            background: rgba(0,0,0,0.15);
-            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
             cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(0,0,0,0.4);
+            transform: translateX(5px);
         }
 
         .checklist-item input[type="checkbox"] {
-            width: 22px;
-            height: 22px;
-            margin-right: 12px;
-            flex-shrink: 0;
+            width: 25px;
+            height: 25px;
+            margin-right: 15px;
+            cursor: pointer;
             accent-color: #2ecc71;
         }
 
         .checklist-item label {
             flex: 1;
-            font-size: 1rem;
-            margin-right: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
         }
 
         .item-quantity {
-            background: rgba(102, 126, 234, 0.4);
-            padding: 3px 10px;
-            border-radius: 10px;
+            background: rgba(102, 126, 234, 0.3);
+            padding: 5px 15px;
+            border-radius: 15px;
             font-weight: 600;
-            font-size: 0.8rem;
-            white-space: nowrap;
+            font-size: 0.9rem;
         }
 
         /* Calculator */
         .calculator-container {
             background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            padding: 30px 20px;
+            padding: 40px;
             border-radius: 25px;
+            margin-top: 30px;
         }
 
         .calc-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
         }
 
         .calc-input-group {
-            background: rgba(0,0,0,0.25);
-            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
             border-radius: 15px;
-            border: 1px solid rgba(102, 126, 234, 0.3);
+            border: 2px solid rgba(102, 126, 234, 0.3);
         }
 
         .calc-input-group label {
-            font-size: 0.9rem;
-            margin-bottom: 8px;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #667eea;
         }
 
         .calc-input-group input {
             width: 100%;
-            padding: 12px;
-            font-size: 1rem;
+            padding: 15px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.4);
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .calc-result {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .calc-result h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
         .calc-result .big-number {
-            font-size: 3rem;
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 15px 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
         }
 
         /* Wiring Diagram */
         .wiring-container {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
             border-radius: 25px;
+            margin: 30px 0;
         }
 
         .diagram-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Stacked by default for mobile */
-            gap: 20px;
-        }
-
-        @media (min-width: 992px) {
-            .diagram-grid { grid-template-columns: 2fr 1fr; }
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
         }
 
         .diagram-canvas {
-            background: #f8f9fa;
+            background: white;
             border-radius: 20px;
-            padding: 20px;
+            padding: 30px;
             position: relative;
-            min-height: 480px;
-            overflow: hidden;
-            border: 5px solid #333;
+            min-height: 500px;
         }
 
         .component-item {
             position: absolute;
-            padding: 10px 15px;
-            font-size: 0.85rem;
-            z-index: 5;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 15px 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-weight: 600;
+            color: white;
+        }
+
+        .component-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .component-item.selected {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .component-info {
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .component-info h3 {
+            color: #2ecc71;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .pin-connection {
+            background: rgba(46, 204, 113, 0.2);
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
         }
 
         /* Code Section */
         .code-container {
-            padding: 20px 15px;
+            background: #1e1e1e;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 2px solid #667eea;
+            position: relative;
         }
 
         .code-header {
-            flex-direction: column;
-            gap: 15px;
-            align-items: flex-start;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
 
-        @media (min-width: 576px) {
-            .code-header { flex-direction: row; align-items: center; }
+        .copy-btn {
+            padding: 10px 25px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            transform: scale(1.05);
         }
 
         .code-container pre {
-            font-size: 0.85rem;
+            color: #d4d4d4;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            line-height: 1.8;
+            overflow-x: auto;
         }
 
-        /* Step Card */
+        .code-line {
+            display: block;
+            padding: 3px 0;
+        }
+
+        .code-comment { color: #6a9955; }
+        .code-keyword { color: #569cd6; }
+        .code-function { color: #dcdcaa; }
+        .code-string { color: #ce9178; }
+        .code-number { color: #b5cea8; }
+
+        .code-explanation {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        /* Steps Guide */
+        .steps-container {
+            margin: 40px 0;
+        }
+
         .step-card {
-            padding: 25px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
         }
 
-        @media (min-width: 768px) {
-            .step-card { flex-direction: row; text-align: left; }
+        .step-card:hover {
+            border-color: #667eea;
+            transform: translateX(10px);
         }
 
         .step-number {
-            margin-right: 0;
-            margin-bottom: 15px;
-            flex-shrink: 0;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-right: 20px;
         }
 
-        @media (min-width: 768px) {
-            .step-number { margin-right: 20px; margin-bottom: 0; }
+        .step-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2ecc71;
+        }
+
+        .step-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .step-tips {
+            background: rgba(241, 196, 15, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #f1c40f;
+            margin-top: 15px;
         }
 
         /* Impact Calculator */
-        .impact-value {
-            font-size: 2.2rem;
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
         }
 
-        /* Responsiveness Overrides */
+        .impact-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(46, 204, 113, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .impact-card:hover {
+            transform: translateY(-10px);
+            border-color: #2ecc71;
+            box-shadow: 0 20px 40px rgba(46, 204, 113, 0.3);
+        }
+
+        .impact-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        .impact-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2ecc71;
+            margin: 15px 0;
+        }
+
+        .impact-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .impact-description {
+            margin-top: 15px;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .scale-calculator {
+            background: rgba(142, 68, 173, 0.3);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+
+        .scale-slider {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: rgba(46, 204, 113, 0.3);
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #2ecc71;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 1.8rem; }
-            .section-intro { font-size: 1rem; }
+            .tab-btn {
+                padding: 15px 10px;
+                font-size: 0.9rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .diagram-grid {
+                grid-template-columns: 1fr;
+            }
             
             .content-section {
-                padding-top: 110px;
-            }
-
-            .tab-btn {
-                padding: 15px 18px;
-                font-size: 0.95rem;
-            }
-
-            .diagram-canvas {
-                min-height: 400px;
-                transform: scale(0.9); /* Sedikit dikecilkan agar pas di layar kecil */
-                transform-origin: top center;
-            }
-
-            .calc-result .big-number {
-                font-size: 2.5rem;
+                padding-top: 120px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation Tabs -->
     <div class="nav-tabs">
-        <div class="tabs-container" id="tabsBox">
+        <div class="tabs-container">
             <button class="tab-btn active" onclick="showTab('checklist')">📋 Checklist</button>
             <button class="tab-btn" onclick="showTab('dimensions')">📐 Dimensi</button>
             <button class="tab-btn" onclick="showTab('wiring')">🔌 Wiring</button>
@@ -344,11 +539,13 @@
         </div>
     </div>
 
+    <!-- Progress Bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
     </div>
     <div class="progress-text" id="progressText">0% Complete</div>
 
+    <!-- Checklist Section -->
     <div class="content-section active" id="checklist">
         <h1>📋 Checklist Bahan & Alat</h1>
         <p class="section-intro">Centang setiap item yang sudah kamu siapkan!</p>
@@ -356,42 +553,42 @@
         <div class="checklist-grid">
             <div class="checklist-category">
                 <h3>⚡ Komponen Elektronik</h3>
-                <div class="checklist-item" onclick="toggleCheckbox('item1')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item1" onchange="updateProgress()">
                     <label for="item1">Arduino Uno R3</label>
                     <span class="item-quantity">4 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item2')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item2" onchange="updateProgress()">
                     <label for="item2">Sensor DHT22</label>
                     <span class="item-quantity">4 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item3')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item3" onchange="updateProgress()">
                     <label for="item3">Sensor Hujan + Relay</label>
                     <span class="item-quantity">4 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item4')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item4" onchange="updateProgress()">
                     <label for="item4">Servo Motor SG90</label>
                     <span class="item-quantity">8 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item5')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item5" onchange="updateProgress()">
                     <label for="item5">PIR Motion Sensor</label>
                     <span class="item-quantity">4 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item6')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item6" onchange="updateProgress()">
                     <label for="item6">LCD Display 16x2</label>
                     <span class="item-quantity">4 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item7')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item7" onchange="updateProgress()">
                     <label for="item7">Breadboard & Kabel Jumper</label>
                     <span class="item-quantity">4 set</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item8')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item8" onchange="updateProgress()">
                     <label for="item8">Baterai 9V</label>
                     <span class="item-quantity">4 unit</span>
@@ -400,27 +597,27 @@
 
             <div class="checklist-category">
                 <h3>🏗️ Material Konstruksi</h3>
-                <div class="checklist-item" onclick="toggleCheckbox('item9')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item9" onchange="updateProgress()">
                     <label for="item9">Impraboard/Styrofoam</label>
                     <span class="item-quantity">18 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item10')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item10" onchange="updateProgress()">
                     <label for="item10">Lem Fox/Lem Tembak</label>
                     <span class="item-quantity">4 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item11')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item11" onchange="updateProgress()">
                     <label for="item11">Kertas Karton</label>
                     <span class="item-quantity">Secukupnya</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item12')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item12" onchange="updateProgress()">
                     <label for="item12">Cat & Kuas</label>
                     <span class="item-quantity">1 set</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item13')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item13" onchange="updateProgress()">
                     <label for="item13">Kawat/Tali Nilon</label>
                     <span class="item-quantity">Secukupnya</span>
@@ -429,27 +626,27 @@
 
             <div class="checklist-category">
                 <h3>🔧 Alat-alat</h3>
-                <div class="checklist-item" onclick="toggleCheckbox('item14')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item14" onchange="updateProgress()">
                     <label for="item14">Penggaris & Jangka</label>
                     <span class="item-quantity">1 set</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item15')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item15" onchange="updateProgress()">
                     <label for="item15">Cutter & Gunting</label>
                     <span class="item-quantity">1 set</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item16')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item16" onchange="updateProgress()">
                     <label for="item16">Laptop/Komputer</label>
                     <span class="item-quantity">1 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item17')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item17" onchange="updateProgress()">
                     <label for="item17">Kabel USB</label>
                     <span class="item-quantity">1 unit</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item18')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item18" onchange="updateProgress()">
                     <label for="item18">Multimeter</label>
                     <span class="item-quantity">1 unit</span>
@@ -458,17 +655,17 @@
 
             <div class="checklist-category">
                 <h3>📝 Dokumentasi</h3>
-                <div class="checklist-item" onclick="toggleCheckbox('item19')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item19" onchange="updateProgress()">
                     <label for="item19">LKPD (Lembar Kerja)</label>
                     <span class="item-quantity">Per kelompok</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item20')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item20" onchange="updateProgress()">
                     <label for="item20">Buku Catatan</label>
                     <span class="item-quantity">1 buah</span>
                 </div>
-                <div class="checklist-item" onclick="toggleCheckbox('item21')">
+                <div class="checklist-item">
                     <input type="checkbox" id="item21" onchange="updateProgress()">
                     <label for="item21">Kamera/HP</label>
                     <span class="item-quantity">1 unit</span>
@@ -477,278 +674,622 @@
         </div>
     </div>
 
+    <!-- Dimensions Calculator Section -->
     <div class="content-section" id="dimensions">
         <h1>📐 Kalkulator Dimensi Skala 1:50</h1>
         <p class="section-intro">Hitung dimensi prototipe berdasarkan rumah aslinya!</p>
 
         <div class="calculator-container">
-            <h2 style="margin-bottom: 25px; text-align: center; font-size: 1.3rem;">🏠 Dimensi Rumah Asli (meter)</h2>
+            <h2 style="margin-bottom: 30px;">🏠 Masukkan Dimensi Rumah Asli (meter)</h2>
             
             <div class="calc-grid">
                 <div class="calc-input-group">
-                    <label>📏 Panjang (m):</label>
-                    <input type="number" id="realLength" value="15" oninput="calculateScale()">
+                    <label>📏 Panjang Rumah (m):</label>
+                    <input type="number" id="realLength" value="15" min="5" max="50" oninput="calculateScale()">
                 </div>
                 <div class="calc-input-group">
-                    <label>📏 Lebar (m):</label>
-                    <input type="number" id="realWidth" value="12" oninput="calculateScale()">
+                    <label>📏 Lebar Rumah (m):</label>
+                    <input type="number" id="realWidth" value="12" min="5" max="50" oninput="calculateScale()">
                 </div>
                 <div class="calc-input-group">
-                    <label>📏 Tinggi (m):</label>
-                    <input type="number" id="realHeight" value="10" oninput="calculateScale()">
+                    <label>📏 Tinggi Rumah (m):</label>
+                    <input type="number" id="realHeight" value="10" min="3" max="20" oninput="calculateScale()">
                 </div>
             </div>
 
-            <div style="text-align: center; font-size: 1.5rem; margin: 20px 0; opacity: 0.6;">⬇️</div>
+            <div style="text-align: center; font-size: 2rem; margin: 30px 0; opacity: 0.8;">
+                ⬇️ Skala 1:50 ⬇️
+            </div>
 
             <div class="calc-grid">
                 <div class="calc-result">
-                    <h3>Panjang (cm)</h3>
+                    <h3>Panjang Prototipe</h3>
                     <div class="big-number" id="scaleLength">30 cm</div>
                 </div>
                 <div class="calc-result">
-                    <h3>Lebar (cm)</h3>
+                    <h3>Lebar Prototipe</h3>
                     <div class="big-number" id="scaleWidth">24 cm</div>
+                </div>
+                <div class="calc-result">
+                    <h3>Tinggi Prototipe</h3>
+                    <div class="big-number" id="scaleHeight">20 cm</div>
                 </div>
             </div>
 
-            <div class="calc-result" style="background: linear-gradient(135deg, #667eea, #764ba2); margin-top: 15px;">
+            <div class="calc-result" style="background: linear-gradient(135deg, #667eea, #764ba2); margin-top: 20px;">
                 <h3>📦 Volume Prototipe</h3>
-                <div class="big-number" style="font-size: 2.2rem;" id="volume">14,400 cm³</div>
+                <div class="big-number" id="volume">14,400 cm³</div>
+                <p style="opacity: 0.9; font-size: 1.1rem;">Kapasitas udara yang perlu dikontrol</p>
             </div>
 
-            <div class="code-explanation" style="margin-top: 25px;">
-                <h3 style="color: #2ecc71; margin-bottom: 8px;">💡 Cara Menghitung:</h3>
-                <p style="font-size: 0.95rem; line-height: 1.6;">
-                    Dimensi Prototipe = Dimensi Asli ÷ 50<br>
-                    <strong>Contoh:</strong> 15m → 1500cm ÷ 50 = 30cm
+            <div class="code-explanation" style="margin-top: 30px;">
+                <h3 style="color: #2ecc71; margin-bottom: 10px;">💡 Cara Menghitung:</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8;">
+                    <strong>Rumus Skala:</strong> Dimensi Prototipe = Dimensi Asli ÷ 50<br>
+                    <strong>Contoh:</strong> Rumah 15m → Prototipe 15 ÷ 50 = 0.3m = 30cm<br>
+                    <strong>Volume:</strong> V = Panjang × Lebar × Tinggi
                 </p>
             </div>
         </div>
     </div>
 
+    <!-- Wiring Diagram Section -->
     <div class="content-section" id="wiring">
-        <h1>🔌 Wiring Diagram</h1>
-        <p class="section-intro">Klik komponen untuk detail pinout!</p>
+        <h1>🔌 Wiring Diagram Interaktif</h1>
+        <p class="section-intro">Klik komponen untuk melihat cara koneksinya!</p>
 
         <div class="wiring-container">
             <div class="diagram-grid">
                 <div class="diagram-canvas">
-                    <div style="text-align: center; color: #333; font-weight: 800; font-size: 1.1rem; margin-bottom: 15px;">
+                    <div style="text-align: center; color: #333; font-weight: 800; font-size: 1.5rem; margin-bottom: 20px;">
                         Arduino Uno R3 Pinout
                     </div>
                     
-                    <div class="component-item" style="top: 60px; left: 20px;" onclick="selectComponent('arduino')">
+                    <div class="component-item" style="top: 80px; left: 50px;" onclick="selectComponent('arduino')">
                         🧠 Arduino Uno
                     </div>
                     
-                    <div class="component-item" style="top: 130px; right: 20px;" onclick="selectComponent('dht22')">
+                    <div class="component-item" style="top: 150px; left: 300px;" onclick="selectComponent('dht22')">
                         🌡️ DHT22
                     </div>
                     
-                    <div class="component-item" style="top: 190px; right: 20px;" onclick="selectComponent('rain')">
-                        🌧️ Rain
+                    <div class="component-item" style="top: 220px; left: 300px;" onclick="selectComponent('rain')">
+                        🌧️ Rain Sensor
                     </div>
                     
-                    <div class="component-item" style="top: 250px; right: 20px;" onclick="selectComponent('servo')">
-                        ⚙️ Servo
+                    <div class="component-item" style="top: 290px; left: 300px;" onclick="selectComponent('servo')">
+                        ⚙️ Servo Motor
                     </div>
                     
-                    <div class="component-item" style="top: 310px; right: 20px;" onclick="selectComponent('pir')">
-                        🚶 PIR
+                    <div class="component-item" style="top: 360px; left: 300px;" onclick="selectComponent('pir')">
+                        🚶 PIR Sensor
                     </div>
                     
-                    <div class="component-item" style="top: 370px; right: 20px;" onclick="selectComponent('lcd')">
-                        📺 LCD
+                    <div class="component-item" style="top: 430px; left: 300px;" onclick="selectComponent('lcd')">
+                        📺 LCD 16x2
                     </div>
 
+                    <!-- Connection Lines (SVG) -->
                     <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
-                        <line x1="120" y1="80" x2="250" y2="150" stroke="#2ecc71" stroke-width="2" opacity="0.3"/>
-                        <line x1="120" y1="80" x2="250" y2="210" stroke="#3498db" stroke-width="2" opacity="0.3"/>
-                        <line x1="120" y1="80" x2="250" y2="270" stroke="#e74c3c" stroke-width="2" opacity="0.3"/>
-                        <line x1="120" y1="80" x2="250" y2="330" stroke="#f39c12" stroke-width="2" opacity="0.3"/>
-                        <line x1="120" y1="80" x2="250" y2="390" stroke="#9b59b6" stroke-width="2" opacity="0.3"/>
+                        <line x1="150" y1="100" x2="300" y2="170" stroke="#2ecc71" stroke-width="3" opacity="0.5"/>
+                        <line x1="150" y1="100" x2="300" y2="240" stroke="#3498db" stroke-width="3" opacity="0.5"/>
+                        <line x1="150" y1="100" x2="300" y2="310" stroke="#e74c3c" stroke-width="3" opacity="0.5"/>
+                        <line x1="150" y1="100" x2="300" y2="380" stroke="#f39c12" stroke-width="3" opacity="0.5"/>
+                        <line x1="150" y1="100" x2="300" y2="450" stroke="#9b59b6" stroke-width="3" opacity="0.5"/>
                     </svg>
                 </div>
 
                 <div class="component-info" id="componentInfo">
-                    <h3>👆 Pilih Komponen</h3>
-                    <p style="opacity: 0.8; font-size: 0.9rem;">Klik salah satu komponen untuk melihat detail koneksi kabel.</p>
+                    <h3>👆 Klik komponen untuk info detail</h3>
+                    <p style="opacity: 0.8; line-height: 1.8;">Pilih salah satu komponen di sebelah kiri untuk melihat cara koneksi pin Arduino dan spesifikasi teknisnya.</p>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Code Section -->
     <div class="content-section" id="code">
-        <h1>💻 Kode Arduino</h1>
+        <h1>💻 Kode Arduino INTEL-C</h1>
+        <p class="section-intro">Copy kode ini dan pelajari setiap barisnya!</p>
+
         <div class="code-container">
             <div class="code-header">
-                <h3 style="color: #2ecc71; margin: 0; font-size: 1rem;">📄 intel_c_complete.ino</h3>
+                <h3 style="color: #2ecc71; margin: 0;">📄 intel_c_complete.ino</h3>
                 <button class="copy-btn" onclick="copyCode()">📋 Copy Kode</button>
             </div>
-            <pre id="arduinoCode"><code><span class="code-comment">// INTEL-C: Smart Home IoT System</span>
+            <pre id="arduinoCode"><code><span class="code-comment">// ========================================
+// INTEL-C: Smart Home IoT System
+// Intelligent Environmental Control
+// ========================================</span>
+
+<span class="code-comment">// Include Libraries</span>
 <span class="code-keyword">#include</span> <span class="code-string">&lt;DHT.h&gt;</span>
 <span class="code-keyword">#include</span> <span class="code-string">&lt;Servo.h&gt;</span>
 <span class="code-keyword">#include</span> <span class="code-string">&lt;LiquidCrystal_I2C.h&gt;</span>
 
-<span class="code-keyword">#define</span> DHT_PIN_1 <span class="code-number">2</span>
-<span class="code-keyword">#define</span> RAIN_PIN <span class="code-number">4</span>
-<span class="code-keyword">#define</span> PIR_PIN <span class="code-number">5</span>
-<span class="code-keyword">#define</span> FAN_PIN <span class="code-number">6</span>
-<span class="code-keyword">#define</span> SERVO_WINDOW <span class="code-number">9</span>
+<span class="code-comment">// Pin Definitions</span>
+<span class="code-keyword">#define</span> DHT_PIN_1 <span class="code-number">2</span>     <span class="code-comment">// DHT22 Lantai 1</span>
+<span class="code-keyword">#define</span> DHT_PIN_2 <span class="code-number">3</span>     <span class="code-comment">// DHT22 Lantai 2</span>
+<span class="code-keyword">#define</span> RAIN_PIN <span class="code-number">4</span>       <span class="code-comment">// Rain Sensor</span>
+<span class="code-keyword">#define</span> PIR_PIN <span class="code-number">5</span>        <span class="code-comment">// PIR Motion Sensor</span>
+<span class="code-keyword">#define</span> FAN_PIN <span class="code-number">6</span>        <span class="code-comment">// Exhaust Fan</span>
+<span class="code-keyword">#define</span> SERVO_WINDOW <span class="code-number">9</span>  <span class="code-comment">// Servo Jendela</span>
+<span class="code-keyword">#define</span> SERVO_CANOPY <span class="code-number">10</span> <span class="code-comment">// Servo Kanopi</span>
 
+<span class="code-comment">// Sensor & Actuator Objects</span>
 <span class="code-keyword">DHT</span> dht1(DHT_PIN_1, <span class="code-keyword">DHT22</span>);
+<span class="code-keyword">DHT</span> dht2(DHT_PIN_2, <span class="code-keyword">DHT22</span>);
 <span class="code-keyword">Servo</span> servoWindow;
+<span class="code-keyword">Servo</span> servoCanopy;
 <span class="code-keyword">LiquidCrystal_I2C</span> lcd(<span class="code-number">0x27</span>, <span class="code-number">16</span>, <span class="code-number">2</span>);
 
+<span class="code-comment">// Threshold Values</span>
+<span class="code-keyword">const float</span> TEMP_HIGH = <span class="code-number">32.0</span>;   <span class="code-comment">// Suhu tinggi (°C)</span>
+<span class="code-keyword">const float</span> TEMP_LOW = <span class="code-number">24.0</span>;    <span class="code-comment">// Suhu rendah (°C)</span>
+<span class="code-keyword">const float</span> HUMIDITY_HIGH = <span class="code-number">75.0</span>; <span class="code-comment">// Kelembaban tinggi (%)</span>
+
 <span class="code-keyword">void</span> <span class="code-function">setup</span>() {
+  <span class="code-comment">// Initialize Serial Monitor</span>
+  Serial.begin(<span class="code-number">9600</span>);
+  
+  <span class="code-comment">// Initialize Sensors</span>
   dht1.begin();
+  dht2.begin();
+  
+  <span class="code-comment">// Initialize LCD</span>
   lcd.init();
   lcd.backlight();
+  lcd.setCursor(<span class="code-number">0</span>, <span class="code-number">0</span>);
+  lcd.print(<span class="code-string">"INTEL-C System"</span>);
+  lcd.setCursor(<span class="code-number">0</span>, <span class="code-number">1</span>);
+  lcd.print(<span class="code-string">"Initializing..."</span>);
+  delay(<span class="code-number">2000</span>);
+  
+  <span class="code-comment">// Initialize Pins</span>
   pinMode(RAIN_PIN, <span class="code-keyword">INPUT</span>);
+  pinMode(PIR_PIN, <span class="code-keyword">INPUT</span>);
+  pinMode(FAN_PIN, <span class="code-keyword">OUTPUT</span>);
+  
+  <span class="code-comment">// Initialize Servos</span>
   servoWindow.attach(SERVO_WINDOW);
+  servoCanopy.attach(SERVO_CANOPY);
+  
+  <span class="code-comment">// Set initial positions</span>
+  servoWindow.write(<span class="code-number">45</span>);  <span class="code-comment">// Semi-open</span>
+  servoCanopy.write(<span class="code-number">90</span>);  <span class="code-comment">// Open</span>
+  
+  digitalWrite(FAN_PIN, <span class="code-keyword">LOW</span>);
+  
+  lcd.clear();
 }
 
 <span class="code-keyword">void</span> <span class="code-function">loop</span>() {
-  <span class="code-keyword">float</span> temp = dht1.readTemperature();
-  <span class="code-keyword">bool</span> isRaining = !digitalRead(RAIN_PIN);
+  <span class="code-comment">// Read Sensors</span>
+  <span class="code-keyword">float</span> temp1 = dht1.readTemperature();
+  <span class="code-keyword">float</span> humidity1 = dht1.readHumidity();
+  <span class="code-keyword">float</span> temp2 = dht2.readTemperature();
+  <span class="code-keyword">float</span> humidity2 = dht2.readHumidity();
   
+  <span class="code-comment">// Average values</span>
+  <span class="code-keyword">float</span> avgTemp = (temp1 + temp2) / <span class="code-number">2.0</span>;
+  <span class="code-keyword">float</span> avgHumidity = (humidity1 + humidity2) / <span class="code-number">2.0</span>;
+  
+  <span class="code-comment">// Read digital sensors</span>
+  <span class="code-keyword">bool</span> isRaining = !digitalRead(RAIN_PIN);  <span class="code-comment">// Inverted logic</span>
+  <span class="code-keyword">bool</span> motionDetected = digitalRead(PIR_PIN);
+  
+  <span class="code-comment">// Decision Making Logic</span>
   <span class="code-keyword">if</span> (isRaining) {
-    servoWindow.write(<span class="code-number">0</span>); <span class="code-comment">// Tutup</span>
-  } <span class="code-keyword">else if</span> (temp > <span class="code-number">32</span>) {
-    servoWindow.write(<span class="code-number">90</span>); <span class="code-comment">// Buka</span>
+    <span class="code-comment">// Rain Protection Mode</span>
+    servoWindow.write(<span class="code-number">0</span>);    <span class="code-comment">// Close windows</span>
+    servoCanopy.write(<span class="code-number">0</span>);    <span class="code-comment">// Close canopy</span>
+    digitalWrite(FAN_PIN, <span class="code-keyword">LOW</span>);
+    
+    lcd.setCursor(<span class="code-number">0</span>, <span class="code-number">1</span>);
+    lcd.print(<span class="code-string">"Mode: RAIN     "</span>);
+  } 
+  <span class="code-keyword">else if</span> (avgTemp > TEMP_HIGH) {
+    <span class="code-comment">// Cooling Mode</span>
+    servoWindow.write(<span class="code-number">90</span>);   <span class="code-comment">// Open windows</span>
+    servoCanopy.write(<span class="code-number">90</span>);   <span class="code-comment">// Open canopy</span>
+    digitalWrite(FAN_PIN, <span class="code-keyword">HIGH</span>);
+    
+    lcd.setCursor(<span class="code-number">0</span>, <span class="code-number">1</span>);
+    lcd.print(<span class="code-string">"Mode: COOLING  "</span>);
+  } 
+  <span class="code-keyword">else if</span> (avgTemp < TEMP_LOW) {
+    <span class="code-comment">// Energy Saving Mode</span>
+    servoWindow.write(<span class="code-number">0</span>);    <span class="code-comment">// Close windows</span>
+    servoCanopy.write(<span class="code-number">45</span>);   <span class="code-comment">// Semi-close</span>
+    digitalWrite(FAN_PIN, <span class="code-keyword">LOW</span>);
+    
+    lcd.setCursor(<span class="code-number">0</span>, <span class="code-number">1</span>);
+    lcd.print(<span class="code-string">"Mode: SAVING   "</span>);
   }
-  delay(<span class="code-number">2000</span>);
+  <span class="code-keyword">else</span> {
+    <span class="code-comment">// Normal Mode</span>
+    servoWindow.write(<span class="code-number">45</span>);   <span class="code-comment">// Semi-open</span>
+    servoCanopy.write(<span class="code-number">90</span>);   <span class="code-comment">// Open</span>
+    
+    <span class="code-keyword">if</span> (avgHumidity > HUMIDITY_HIGH) {
+      digitalWrite(FAN_PIN, <span class="code-keyword">HIGH</span>);
+    } <span class="code-keyword">else</span> {
+      digitalWrite(FAN_PIN, <span class="code-keyword">LOW</span>);
+    }
+    
+    lcd.setCursor(<span class="code-number">0</span>, <span class="code-number">1</span>);
+    lcd.print(<span class="code-string">"Mode: NORMAL   "</span>);
+  }
+  
+  <span class="code-comment">// Display on LCD</span>
+  lcd.setCursor(<span class="code-number">0</span>, <span class="code-number">0</span>);
+  lcd.print(<span class="code-string">"T:"</span>);
+  lcd.print(avgTemp, <span class="code-number">1</span>);
+  lcd.print(<span class="code-string">"C H:"</span>);
+  lcd.print(avgHumidity, <span class="code-number">0</span>);
+  lcd.print(<span class="code-string">"%  "</span>);
+  
+  <span class="code-comment">// Debug to Serial Monitor</span>
+  Serial.print(<span class="code-string">"Temp: "</span>);
+  Serial.print(avgTemp);
+  Serial.print(<span class="code-string">" | Humidity: "</span>);
+  Serial.print(avgHumidity);
+  Serial.print(<span class="code-string">" | Rain: "</span>);
+  Serial.println(isRaining ? <span class="code-string">"YES"</span> : <span class="code-string">"NO"</span>);
+  
+  delay(<span class="code-number">2000</span>);  <span class="code-comment">// Update every 2 seconds</span>
 }</code></pre>
+        </div>
+
+        <div class="code-explanation">
+            <h3 style="color: #2ecc71; margin-bottom: 15px;">📖 Penjelasan Kode:</h3>
+            <p style="line-height: 1.8;">
+                <strong>1. Libraries:</strong> DHT.h untuk sensor suhu, Servo.h untuk motor, LiquidCrystal_I2C.h untuk LCD<br>
+                <strong>2. Pin Definitions:</strong> Tentukan pin Arduino untuk setiap komponen<br>
+                <strong>3. Setup():</strong> Inisialisasi sensor, servo, dan LCD saat Arduino menyala<br>
+                <strong>4. Loop():</strong> Baca sensor → Buat keputusan → Kontrol aktuator → Tampilkan data<br>
+                <strong>5. Logika IF-ELSE:</strong> Jika hujan tutup semua, jika panas buka & nyalakan fan, jika dingin tutup semua
+            </p>
         </div>
     </div>
 
+    <!-- Steps Tutorial Section -->
     <div class="content-section" id="steps">
         <h1>🛠️ Tutorial Step-by-Step</h1>
+        <p class="section-intro">Ikuti langkah-langkah ini untuk membuat INTEL-C kamu!</p>
+
         <div class="steps-container">
             <div class="step-card">
                 <span class="step-number">1</span>
                 <div class="step-content">
-                    <h3>Persiapan</h3>
-                    <p>Hitung dimensi skala 1:50 dan buat sketsa desain di kertas.</p>
+                    <h3>Persiapan & Perhitungan</h3>
+                    <p>Mulai dengan menghitung dimensi rumah menggunakan skala 1:50. Buat sketsa desain di kertas dan tentukan posisi jendela, pintu, dan sensor.</p>
+                    <div class="step-tips">
+                        <strong>💡 Tips:</strong> Gunakan kertas grafik untuk sketsa lebih presisi. Pastikan semua anggota kelompok setuju dengan desain sebelum mulai konstruksi.
+                    </div>
                 </div>
             </div>
+
             <div class="step-card">
                 <span class="step-number">2</span>
                 <div class="step-content">
-                    <h3>Konstruksi</h3>
-                    <p>Potong impraboard dan rakit struktur rumah miniatur.</p>
+                    <h3>Konstruksi Struktur Rumah</h3>
+                    <p>Potong impraboard sesuai dimensi yang sudah dihitung. Rakit dinding, lantai, dan atap menggunakan lem tembak. Buat bukaan untuk jendela dan pintu.</p>
+                    <div class="step-tips">
+                        <strong>💡 Tips:</strong> Potong dengan hati-hati menggunakan cutter tajam. Gunakan penggaris untuk hasil potongan yang rapi dan presisi.
+                    </div>
                 </div>
             </div>
+
             <div class="step-card">
                 <span class="step-number">3</span>
                 <div class="step-content">
-                    <h3>Wiring</h3>
-                    <p>Hubungkan sensor dan servo ke Arduino sesuai diagram.</p>
+                    <h3>Instalasi Servo Motor</h3>
+                    <p>Pasang servo motor untuk jendela dan kanopi. Buat mekanisme penggerak menggunakan kawat atau tali nilon. Test gerakan servo 0-90 derajat.</p>
+                    <div class="step-tips">
+                        <strong>💡 Tips:</strong> Test servo terlebih dahulu di breadboard sebelum memasang permanent. Pastikan gerakan smooth tanpa hambatan.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-number">4</span>
+                <div class="step-content">
+                    <h3>Wiring & Koneksi Elektronik</h3>
+                    <p>Hubungkan semua sensor dan aktuator ke Arduino sesuai diagram wiring. Gunakan breadboard untuk koneksi yang rapi. Cek setiap koneksi dengan multimeter.</p>
+                    <div class="step-tips">
+                        <strong>💡 Tips:</strong> Gunakan kabel jumper dengan warna berbeda untuk setiap jenis koneksi (merah=5V, hitam=GND, warna lain=Signal).
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-number">5</span>
+                <div class="step-content">
+                    <h3>Upload & Testing Kode</h3>
+                    <p>Upload kode Arduino ke board. Test setiap sensor satu per satu. Cek output di Serial Monitor. Pastikan semua komponen merespons dengan benar.</p>
+                    <div class="step-tips">
+                        <strong>💡 Tips:</strong> Jika ada error, cek koneksi pin dan library yang terinstall. Gunakan Serial.print() untuk debugging.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-number">6</span>
+                <div class="step-content">
+                    <h3>Integrasi & Fine-tuning</h3>
+                    <p>Integrasikan semua komponen dalam rumah miniatur. Adjust threshold value di kode sesuai kondisi ruangan. Test dengan kondisi cuaca simulasi.</p>
+                    <div class="step-tips">
+                        <strong>💡 Tips:</strong> Simulasikan hujan dengan spray air, panas dengan hairdryer. Catat respons sistem dan adjust jika perlu.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <span class="step-number">7</span>
+                <div class="step-content">
+                    <h3>Finishing & Dokumentasi</h3>
+                    <p>Cat rumah dengan warna menarik. Pasang LCD display di posisi yang visible. Buat video demonstrasi cara kerja sistem. Siapkan presentasi!</p>
+                    <div class="step-tips">
+                        <strong>💡 Tips:</strong> Dokumentasikan setiap tahap dengan foto dan video. Ini akan berguna untuk presentasi dan portfolio kalian!
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Impact Calculator Section -->
     <div class="content-section" id="impact">
-        <h1>🌍 Real-World Impact</h1>
+        <h1>🌍 Real-World Impact Calculator</h1>
+        <p class="section-intro">Lihat dampak nyata jika INTEL-C diterapkan di rumah-rumah Indonesia!</p>
+
         <div class="calculator-container">
-            <div class="scale-calculator">
-                <h3 style="margin-bottom: 15px; font-size: 1.1rem; text-align: center;">🏘️ Jumlah Rumah</h3>
-                <div style="text-align: center; font-size: 2.5rem; font-weight: 800; color: #2ecc71; margin-bottom: 10px;" id="house-count">1,000</div>
-                <input type="range" class="scale-slider" id="house-slider" min="100" max="10000" step="100" value="1000" oninput="calculateImpact()">
+            <h2 style="margin-bottom: 20px;">📊 Asumsi Per Rumah</h2>
+            <p style="opacity: 0.9; margin-bottom: 30px;">Data berdasarkan rata-rata konsumsi rumah tangga di Indonesia</p>
+
+            <div class="calc-grid">
+                <div class="calc-input-group">
+                    <label>💡 Hemat Listrik per Bulan (kWh):</label>
+                    <input type="number" id="kwh-save" value="50" min="10" max="200" oninput="calculateImpact()">
+                </div>
+                <div class="calc-input-group">
+                    <label>💰 Tarif Listrik (Rp/kWh):</label>
+                    <input type="number" id="tariff" value="1444" min="1000" max="2000" oninput="calculateImpact()">
+                </div>
+                <div class="calc-input-group">
+                    <label>🌡️ Pengurangan AC Usage (%):</label>
+                    <input type="number" id="ac-reduction" value="30" min="0" max="60" oninput="calculateImpact()">
+                </div>
             </div>
 
-            <div class="impact-grid" style="margin-top: 30px;">
-                <div class="impact-card">
-                    <div class="impact-icon" style="font-size: 2.5rem;">⚡</div>
-                    <div class="impact-value" style="font-size: 1.5rem;" id="total-kwh">50,000 kWh</div>
-                    <div class="impact-label" style="font-size: 0.9rem;">Hemat Energi</div>
-                </div>
-                <div class="impact-card">
-                    <div class="impact-icon" style="font-size: 2.5rem;">🌱</div>
-                    <div class="impact-value" style="font-size: 1.5rem;" id="total-co2">37,500 kg</div>
-                    <div class="impact-label" style="font-size: 0.9rem;">Reduksi CO₂</div>
+            <div class="scale-calculator">
+                <h3 style="margin-bottom: 20px; font-size: 1.8rem;">🏘️ Jumlah Rumah Menggunakan INTEL-C</h3>
+                <div style="text-align: center; font-size: 3rem; font-weight: 800; color: #2ecc71; margin: 20px 0;" id="house-count">1,000</div>
+                <input type="range" class="scale-slider" id="house-slider" min="100" max="10000" step="100" value="1000" oninput="calculateImpact()">
+                <div style="display: flex; justify-content: space-between; opacity: 0.8; margin-top: 10px;">
+                    <span>100 rumah</span>
+                    <span>10,000 rumah</span>
                 </div>
             </div>
+        </div>
+
+        <h2 style="margin: 60px 0 30px; text-align: center; font-size: 2.5rem;">📈 Dampak Total</h2>
+
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="impact-icon">⚡</div>
+                <div class="impact-label">Penghematan Listrik</div>
+                <div class="impact-value" id="total-kwh">50,000 kWh</div>
+                <div class="impact-description">Setara dengan konsumsi listrik 100 rumah selama 1 bulan</div>
+            </div>
+
+            <div class="impact-card">
+                <div class="impact-icon">💰</div>
+                <div class="impact-label">Penghematan Biaya</div>
+                <div class="impact-value" id="total-money">Rp 72.2 Juta</div>
+                <div class="impact-description">Per bulan untuk semua rumah yang menggunakan INTEL-C</div>
+            </div>
+
+            <div class="impact-card">
+                <div class="impact-icon">🌱</div>
+                <div class="impact-label">Pengurangan CO₂</div>
+                <div class="impact-value" id="total-co2">37,500 kg</div>
+                <div class="impact-description">Setara menanam 1,875 pohon per bulan</div>
+            </div>
+
+            <div class="impact-card">
+                <div class="impact-icon">🌍</div>
+                <div class="impact-label">Kontribusi SDGs</div>
+                <div class="impact-value">4 Goals</div>
+                <div class="impact-description">SDG 4, 9, 11, dan 13 tercapai melalui INTEL-C</div>
+            </div>
+        </div>
+
+        <div class="calculator-container" style="margin-top: 50px; background: linear-gradient(135deg, #2ecc71, #27ae60);">
+            <h2 style="margin-bottom: 30px;">🎯 Per Tahun (12 Bulan)</h2>
+            <div class="impact-grid">
+                <div class="calc-result">
+                    <h3>Listrik</h3>
+                    <div class="big-number" id="yearly-kwh">600,000 kWh</div>
+                </div>
+                <div class="calc-result">
+                    <h3>Uang</h3>
+                    <div class="big-number" id="yearly-money">Rp 866 Juta</div>
+                </div>
+                <div class="calc-result">
+                    <h3>CO₂</h3>
+                    <div class="big-number" id="yearly-co2">450 Ton</div>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 1.3rem; margin-top: 30px; opacity: 0.95;">
+                🌟 Bayangkan jika seluruh Indonesia menerapkan teknologi ini! Kita bisa menghemat energi setara dengan PLTU berkapasitas megawatt!
+            </p>
+        </div>
+
+        <div class="code-explanation" style="margin-top: 50px;">
+            <h3 style="color: #2ecc71; margin-bottom: 15px;">💡 Bagaimana Perhitungannya?</h3>
+            <p style="line-height: 1.8; font-size: 1.1rem;">
+                <strong>Hemat Listrik:</strong> INTEL-C mengurangi penggunaan AC 30-40% dengan ventilasi otomatis<br>
+                <strong>Biaya:</strong> Hemat kWh × Tarif listrik × Jumlah rumah<br>
+                <strong>CO₂:</strong> Setiap 1 kWh listrik = 0.75 kg CO₂ (rata-rata Indonesia)<br>
+                <strong>Pohon:</strong> 1 pohon menyerap ~20 kg CO₂ per tahun
+            </p>
         </div>
     </div>
 
     <script>
+        // Tab Navigation
         function showTab(tabName) {
             const sections = document.querySelectorAll('.content-section');
             const tabs = document.querySelectorAll('.tab-btn');
-            sections.forEach(s => s.classList.remove('active'));
-            tabs.forEach(t => t.classList.remove('active'));
+            
+            sections.forEach(section => section.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
-            // Auto scroll tab ke tengah saat diklik di mobile
-            event.target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
 
-        function toggleCheckbox(id) {
-            const cb = document.getElementById(id);
-            if (event.target.tagName !== 'INPUT') {
-                cb.checked = !cb.checked;
-                updateProgress();
-            }
-        }
-
+        // Progress Tracking
         function updateProgress() {
             const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
             const checked = document.querySelectorAll('#checklist input[type="checkbox"]:checked').length;
-            const percentage = Math.round((checked / checkboxes.length) * 100);
+            const total = checkboxes.length;
+            const percentage = Math.round((checked / total) * 100);
+            
             document.getElementById('progressBar').style.width = percentage + '%';
             document.getElementById('progressText').textContent = percentage + '% Complete';
         }
 
+        // Scale Calculator
         function calculateScale() {
             const length = parseFloat(document.getElementById('realLength').value) || 0;
             const width = parseFloat(document.getElementById('realWidth').value) || 0;
             const height = parseFloat(document.getElementById('realHeight').value) || 0;
-            const sL = (length * 2).toFixed(1);
-            const sW = (width * 2).toFixed(1);
-            const sH = (height * 2).toFixed(1);
-            document.getElementById('scaleLength').textContent = sL + ' cm';
-            document.getElementById('scaleWidth').textContent = sW + ' cm';
-            document.getElementById('volume').textContent = (sL * sW * sH).toLocaleString('id-ID') + ' cm³';
+            
+            const scaleLength = (length * 100 / 50).toFixed(1);
+            const scaleWidth = (width * 100 / 50).toFixed(1);
+            const scaleHeight = (height * 100 / 50).toFixed(1);
+            
+            document.getElementById('scaleLength').textContent = scaleLength + ' cm';
+            document.getElementById('scaleWidth').textContent = scaleWidth + ' cm';
+            document.getElementById('scaleHeight').textContent = scaleHeight + ' cm';
+            
+            const volume = (scaleLength * scaleWidth * scaleHeight).toFixed(0);
+            document.getElementById('volume').textContent = parseInt(volume).toLocaleString('id-ID') + ' cm³';
         }
 
-        function selectComponent(comp) {
-            const items = document.querySelectorAll('.component-item');
-            items.forEach(i => i.classList.remove('selected'));
+        // Component Selection
+        let selectedComponent = null;
+
+        function selectComponent(component) {
+            if (selectedComponent) {
+                const prev = document.querySelector('.component-item.selected');
+                if (prev) prev.classList.remove('selected');
+            }
+            
             event.target.classList.add('selected');
+            selectedComponent = component;
+            
             const info = {
-                'arduino': '<h3>🧠 Arduino Uno</h3><p>Power: 5V-9V. Gunakan Pin D2-D13 untuk sensor.</p>',
-                'dht22': '<h3>🌡️ DHT22</h3><p>Pin DATA ke D2. Gunakan VCC 5V dan GND.</p>',
-                'rain': '<h3>🌧️ Rain Sensor</h3><p>Pin DO ke D4. Deteksi hujan secara digital.</p>',
-                'servo': '<h3>⚙️ Servo</h3><p>Signal ke D9. Berfungsi membuka/tutup jendela.</p>',
-                'pir': '<h3>🚶 PIR Sensor</h3><p>Pin OUT ke D5. Deteksi gerakan penghuni.</p>',
-                'lcd': '<h3>📺 LCD I2C</h3><p>SDA ke A4, SCL ke A5. Menampilkan data suhu.</p>'
+                'arduino': {
+                    title: '🧠 Arduino Uno R3',
+                    content: '<div class="pin-connection"><strong>Power:</strong> 5V / GND / Vin (9V)</div>' +
+                             '<div class="pin-connection"><strong>Digital Pins:</strong> D2-D13 untuk sensor & aktuator</div>' +
+                             '<div class="pin-connection"><strong>Analog Pins:</strong> A0-A5 untuk sensor analog</div>' +
+                             '<div class="pin-connection"><strong>PWM Pins:</strong> D3, 5, 6, 9, 10, 11 (untuk servo)</div>'
+                },
+                'dht22': {
+                    title: '🌡️ Sensor DHT22',
+                    content: '<div class="pin-connection"><strong>VCC:</strong> 5V Arduino</div>' +
+                             '<div class="pin-connection"><strong>DATA:</strong> Pin D2 (DHT1) / D3 (DHT2)</div>' +
+                             '<div class="pin-connection"><strong>GND:</strong> GND Arduino</div>' +
+                             '<p style="margin-top: 15px; opacity: 0.9;">Tambahkan resistor 10kΩ antara VCC dan DATA untuk stabilitas</p>'
+                },
+                'rain': {
+                    title: '🌧️ Rain Sensor',
+                    content: '<div class="pin-connection"><strong>VCC:</strong> 5V Arduino</div>' +
+                             '<div class="pin-connection"><strong>DO:</strong> Pin D4 (Digital Output)</div>' +
+                             '<div class="pin-connection"><strong>AO:</strong> Pin A0 (Analog Output - optional)</div>' +
+                             '<div class="pin-connection"><strong>GND:</strong> GND Arduino</div>'
+                },
+                'servo': {
+                    title: '⚙️ Servo Motor SG90',
+                    content: '<div class="pin-connection"><strong>Brown/Black:</strong> GND Arduino</div>' +
+                             '<div class="pin-connection"><strong>Red:</strong> 5V Arduino</div>' +
+                             '<div class="pin-connection"><strong>Orange/Yellow:</strong> Pin D9 (Window) / D10 (Canopy)</div>' +
+                             '<p style="margin-top: 15px; opacity: 0.9;">Gunakan external power jika servo bergetar/tidak stabil</p>'
+                },
+                'pir': {
+                    title: '🚶 PIR Motion Sensor',
+                    content: '<div class="pin-connection"><strong>VCC:</strong> 5V Arduino</div>' +
+                             '<div class="pin-connection"><strong>OUT:</strong> Pin D5</div>' +
+                             '<div class="pin-connection"><strong>GND:</strong> GND Arduino</div>' +
+                             '<p style="margin-top: 15px; opacity: 0.9;">Adjust sensitivitas dengan potentiometer pada sensor</p>'
+                },
+                'lcd': {
+                    title: '📺 LCD Display 16x2 I2C',
+                    content: '<div class="pin-connection"><strong>VCC:</strong> 5V Arduino</div>' +
+                             '<div class="pin-connection"><strong>GND:</strong> GND Arduino</div>' +
+                             '<div class="pin-connection"><strong>SDA:</strong> Pin A4 Arduino</div>' +
+                             '<div class="pin-connection"><strong>SCL:</strong> Pin A5 Arduino</div>' +
+                             '<p style="margin-top: 15px; opacity: 0.9;">I2C address biasanya 0x27 atau 0x3F. Scan dengan I2C scanner jika tidak terdeteksi</p>'
+                }
             };
-            document.getElementById('componentInfo').innerHTML = info[comp];
+            
+            const componentInfo = document.getElementById('componentInfo');
+            if (info[component]) {
+                componentInfo.innerHTML = '<h3>' + info[component].title + '</h3>' + info[component].content;
+            }
         }
 
+        // Copy Code Function
         function copyCode() {
             const code = document.getElementById('arduinoCode').innerText;
             navigator.clipboard.writeText(code).then(() => {
                 const btn = event.target;
+                const originalText = btn.textContent;
                 btn.textContent = '✅ Copied!';
-                setTimeout(() => btn.textContent = '📋 Copy Kode', 2000);
+                btn.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+                
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
+                }, 2000);
             });
         }
 
+        // Impact Calculator
         function calculateImpact() {
-            const houseCount = parseInt(document.getElementById('house-slider').value);
+            const kwhSave = parseFloat(document.getElementById('kwh-save').value) || 0;
+            const tariff = parseFloat(document.getElementById('tariff').value) || 0;
+            const houseCount = parseInt(document.getElementById('house-slider').value) || 0;
+            
             document.getElementById('house-count').textContent = houseCount.toLocaleString('id-ID');
-            const totalKwh = 50 * houseCount;
+            
+            // Monthly calculations
+            const totalKwh = kwhSave * houseCount;
+            const totalMoney = totalKwh * tariff;
+            const totalCO2 = totalKwh * 0.75; // kg CO2 per kWh
+            
             document.getElementById('total-kwh').textContent = totalKwh.toLocaleString('id-ID') + ' kWh';
-            document.getElementById('total-co2').textContent = (totalKwh * 0.75).toLocaleString('id-ID') + ' kg';
+            document.getElementById('total-money').textContent = 'Rp ' + (totalMoney / 1000000).toFixed(1) + ' Juta';
+            document.getElementById('total-co2').textContent = totalCO2.toLocaleString('id-ID') + ' kg';
+            
+            // Yearly calculations
+            const yearlyKwh = totalKwh * 12;
+            const yearlyMoney = totalMoney * 12;
+            const yearlyCO2 = totalCO2 * 12;
+            
+            document.getElementById('yearly-kwh').textContent = yearlyKwh.toLocaleString('id-ID') + ' kWh';
+            document.getElementById('yearly-money').textContent = 'Rp ' + (yearlyMoney / 1000000).toFixed(0) + ' Juta';
+            document.getElementById('yearly-co2').textContent = (yearlyCO2 / 1000).toFixed(0) + ' Ton';
         }
 
-        // Init
+        // Initialize
         calculateScale();
         calculateImpact();
+        updateProgress();
     </script>
 </body>
 </html>
